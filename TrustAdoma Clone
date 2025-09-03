@@ -1,316 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrustAdoma‑style Landing Page</title>
-  <meta name="description" content="A clean, responsive landing page inspired by TrustAdoma.com" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrustAdoma — Dr. Diane Adoma for Stonecrest District 5</title>
+  <meta name="description" content="Dr. Diane Adoma for Stonecrest District 5 — Trust. Transparency. Technology. Training." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --brand-blue:#13254d; /* header/nav bg */
-      --brand-red:#ff0000;  /* site title color */
-      --text:#0f172a;       /* slate-900 */
-      --muted:#475569;      /* slate-600 */
+      --brand-blue:#13254d;
+      --accent:#ff6b6b;
+      --muted:#6b7280;
       --bg:#ffffff;
-      --section:#f8fafc;    /* light */
-      --accent:#2dd4bf;     /* teal accent for CTAs */
+      --card:#f8fafc;
+      --cta-teal:#06b6d4;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.6;
-    }
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:#0f172a;background:var(--bg);line-height:1.5}
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block;height:auto}
+    .container{width:min(1200px,92%);margin:0 auto}
 
-    /* Header */
-    .site-header{
-      position:sticky;top:0;z-index:50;
-      background:var(--brand-blue);
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .container{width:min(1200px,92%);margin-inline:auto}
-    .row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .brand{display:flex;align-items:center;gap:.75rem;padding:.75rem 0}
-    .brand__logo{width:36px;height:36px;border-radius:10px;background:#fff;display:grid;place-items:center;color:var(--brand-blue);font-weight:800}
-    .brand__title{font-size:1.15rem;font-weight:800;color:var(--brand-red);letter-spacing:.2px}
-
-    nav{display:flex;align-items:center;gap:1.25rem}
-    .nav__link{color:#e5e7eb;font-weight:600;font-size:.95rem;opacity:.9}
-    .nav__link:hover{opacity:1}
-
-    .cta{background:var(--accent);color:#0b1221;font-weight:800;border:none;border-radius:12px;padding:.66rem 1rem;cursor:pointer;box-shadow:0 8px 20px rgba(45,212,191,.25)}
-    .cta:hover{transform:translateY(-1px)}
-
-    /* Mobile nav */
-    .menu-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:10px;padding:.4rem .6rem}
-    @media (max-width: 900px){
-      nav{display:none}
-      .menu-toggle{display:inline-flex}
-      .mobile-panel{display:none;position:absolute;left:0;right:0;top:100%;background:var(--brand-blue);border-bottom:1px solid rgba(255,255,255,.08)}
-      .mobile-panel.open{display:block}
-      .mobile-links{display:grid;gap:.4rem;padding:1rem}
-      .mobile-links a{color:#e5e7eb;padding:.6rem .5rem;border-radius:10px}
-      .mobile-links a:hover{background:rgba(255,255,255,.06)}
-    }
+    header{background:var(--brand-blue);color:#fff;position:sticky;top:0;z-index:50;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .logo{width:44px;height:44px;border-radius:8px;background:#fff;color:var(--brand-blue);display:grid;place-items:center;font-weight:800}
+    .site-title{color:#ff0000;font-weight:800}
+    nav{display:flex;gap:1rem;align-items:center}
+    .nav-link{color:rgba(255,255,255,.95);font-weight:600}
+    .top-actions{display:flex;gap:.6rem;align-items:center}
+    .btn{padding:.6rem .9rem;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:#fff}
+    .btn-primary{background:var(--cta-teal);color:#04293a}
 
     /* Hero */
-    .hero{padding:clamp(2.5rem, 6vw, 5rem) 0;background:linear-gradient(180deg,var(--brand-blue) 0%, #1c2f5e 70%, #203669 100%);color:#fff}
-    .hero__wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
-    @media (max-width: 900px){.hero__wrap{grid-template-columns:1fr}}
-    .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#e2e8f0;padding:.35rem .6rem;border-radius:999px;font-size:.8rem}
-    .hero h1{font-size:clamp(1.8rem,4vw,3rem);line-height:1.15;margin:.75rem 0 .5rem}
-    .hero p{color:#e2e8f0;font-size:1rem}
-    .hero-cta{display:flex;gap:.75rem;margin-top:1.25rem;flex-wrap:wrap}
-    .cta--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+    .hero{background:linear-gradient(180deg,var(--brand-blue),#1b3258 60%);color:#fff;padding:3.5rem 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center}
+    @media (max-width:920px){.hero-grid{grid-template-columns:1fr}}
+    .eyebrow{display:inline-flex;gap:.6rem;align-items:center;background:rgba(255,255,255,.06);padding:.4rem .6rem;border-radius:999px;font-weight:700}
+    .hero h1{font-size:clamp(1.6rem,3.8vw,2.6rem);margin:.6rem 0}
+    .hero p{color:#e6eef6;margin:0}
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+    .signup-card{background:#fff;color:#0b1221;padding:1rem;border-radius:14px;border:1px solid rgba(2,6,23,.06)}
+    .microcopy{font-size:.9rem;color:#475569;margin-top:.5rem}
 
-    .hero__card{background:#0b1221;border:1px solid #223361;border-radius:18px;padding:1rem;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .stat{display:grid;grid-template-columns:auto 1fr auto;gap:.4rem 1rem;align-items:center;padding:.6rem;border-radius:12px;background:#0f1a33;margin:.4rem 0;border:1px solid #1e2f57}
-    .stat small{color:#93c5fd}
+    /* Sections */
+    section{padding:2.5rem 0}
+    .section-title{font-size:1.4rem;margin:0 0 .5rem}
+    .lead{color:var(--muted);max-width:65ch}
 
-    /* Section base */
-    section{padding:clamp(2.5rem, 6vw, 5rem) 0}
-    .section--alt{background:var(--section)}
-    .section__title{font-size:clamp(1.4rem, 3.2vw, 2.2rem);margin:0 0 .75rem}
-    .section__lead{color:var(--muted);max-width:62ch}
+    /* Two-column lists */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+    @media (max-width:760px){.two-col{grid-template-columns:1fr}}
+    .card{background:var(--card);padding:1rem;border-radius:12px;border:1px solid #e6eef6}
+    .list{margin:0;padding:0;list-style:none}
+    .list li{margin:.6rem 0}
 
-    /* Features */
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem}
-    @media (max-width: 900px){.features{grid-template-columns:1fr}}
-    .feature{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1rem;box-shadow:0 6px 18px rgba(2,6,23,.06)}
-    .feature h3{margin:.2rem 0 .4rem}
-    .feature p{color:var(--muted)}
+    /* Priorities */
+    .priorities{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    @media (max-width:920px){.priorities{grid-template-columns:1fr}}
+    .priority{background:#fff;padding:1rem;border-radius:12px;border:1px solid #e6eef6}
+    .priority h4{margin:.2rem 0 .6rem}
 
-    /* Showcase */
-    .showcase{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem
-    }
-    .shot{aspect-ratio:16/10;border-radius:14px;background:linear-gradient(135deg,#e2e8f0,#f8fafc);border:1px solid #e5e7eb;display:grid;place-items:center;font-weight:800;color:#334155}
-    @media (max-width: 900px){.showcase{grid-template-columns:1fr 1fr}}
-    @media (max-width: 640px){.showcase{grid-template-columns:1fr}}
+    /* Initiatives */
+    .initiative{background:#fff;padding:1rem;border-radius:12px;border:1px solid #e6eef6}
 
-    /* Pricing */
-    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
-    @media (max-width: 900px){.pricing{grid-template-columns:1fr}}
-    .plan{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:1rem;box-shadow:0 10px 24px rgba(2,6,23,.06)}
-    .plan--pop{border:2px solid var(--brand-blue)}
-    .price{font-size:2rem;font-weight:800}
-    .muted{color:var(--muted)}
-    .check{display:inline-block;margin-right:.4rem}
-
-    /* CTA strip */
-    .cta-strip{background:linear-gradient(90deg,#0ea5e9,#22d3ee);color:#0b1221;border-radius:16px;padding:1.25rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;border:1px solid rgba(0,0,0,.06)}
+    /* Events */
+    .event{display:flex;gap:1rem;align-items:flex-start;background:#fff;padding:1rem;border-radius:12px;border:1px solid #e6eef6}
+    .event .date{min-width:88px;background:var(--brand-blue);color:#fff;padding:.5rem;border-radius:8px;text-align:center}
 
     /* Footer */
-    footer{padding:2rem 0;border-top:1px solid #e5e7eb;color:#64748b}
-    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:1rem}
-    @media (max-width: 900px){.footer-grid{grid-template-columns:1fr}}
-    .copyright{margin-top:1rem;font-size:.9rem}
-    .footer-title{color:#0f172a;font-weight:800;margin-bottom:.5rem}
+    footer{padding:2rem 0;border-top:1px solid #eef2f7;color:var(--muted)}
+
+    /* Small helpers */
+    .muted{color:var(--muted)}
+    .stack{display:flex;flex-direction:column;gap:.6rem}
+    .row{display:flex;gap:.6rem;align-items:center}
+    .pill{padding:.3rem .6rem;border-radius:999px;background:rgba(0,0,0,.04);font-weight:700}
+
+    /* Forms */
+    input[type="email"], input[type="text"], textarea{width:100%;padding:.6rem;border-radius:10px;border:1px solid #e6eef6}
+    .form-row{display:flex;gap:.6rem}
+    @media (max-width:520px){.form-row{flex-direction:column}}
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container">
-      <div class="row">
-        <a class="brand" href="#">
-          <div class="brand__logo" aria-hidden="true">TA</div>
-          <div class="brand__title">TrustAdoma.com</div>
-        </a>
-        <nav aria-label="Primary">
-          <a class="nav__link" href="#features">Features</a>
-          <a class="nav__link" href="#showcase">Showcase</a>
-          <a class="nav__link" href="#pricing">Pricing</a>
-          <a class="nav__link" href="#contact">Contact</a>
-        </nav>
-        <div class="row">
-          <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
-          <button class="menu-toggle" aria-controls="mobile-panel" aria-expanded="false">Menu</button>
+  <header>
+    <div class="container row" style="justify-content:space-between;align-items:center">
+      <div class="brand">
+        <div class="logo">DA</div>
+        <div>
+          <div class="site-title">TrustAdoma.com</div>
+          <div style="font-size:.85rem;color:rgba(255,255,255,.85)">Dr. Diane Adoma — Stonecrest District 5</div>
         </div>
       </div>
-      <div id="mobile-panel" class="mobile-panel" role="dialog" aria-label="Mobile Navigation">
-        <div class="mobile-links">
-          <a href="#features">Features</a>
-          <a href="#showcase">Showcase</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact</a>
-        </div>
+      <nav>
+        <a class="nav-link" href="#why">Why Diane</a>
+        <a class="nav-link" href="#priorities">Day‑One Priorities</a>
+        <a class="nav-link" href="#transparency">Transparency Center</a>
+        <a class="nav-link" href="#events">Events</a>
+        <a class="nav-link" href="#get-involved">Get Involved</a>
+      </nav>
+      <div class="top-actions">
+        <button class="btn btn-ghost" onclick="document.getElementById('volunteer').scrollIntoView({behavior:'smooth'})">Volunteer</button>
+        <button class="btn btn-primary" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">Donate</button>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="container hero__wrap">
+    <div class="container hero-grid">
       <div>
-        <span class="badge">🔒 Reliable • ⚡ Fast • 🛠️ Easy</span>
-        <h1>Build trust with a modern, conversion‑ready landing page.</h1>
-        <p>Clean design, sharp typography, and lightweight code you can deploy on GitHub Pages or Netlify in minutes.</p>
-        <div class="hero-cta">
-          <a class="cta" href="#pricing">See Pricing</a>
-          <a class="cta cta--ghost" href="#showcase">Preview Sections</a>
+        <div class="eyebrow">Whole Hog, Whole Vision.</div>
+        <h1>Trust. Transparency. Technology. Training. Trust.</h1>
+        <p>Stonecrest deserves a city government that works for people—openly, efficiently, and with compassion.</p>
+
+        <div class="hero-ctas">
+          <button class="btn" onclick="document.getElementById('signup-email').scrollIntoView({behavior:'smooth'})">Join the Movement</button>
+          <button class="btn btn-ghost" onclick="document.getElementById('volunteer').scrollIntoView({behavior:'smooth'})">Volunteer</button>
+          <button class="btn btn-ghost" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">RSVP to Events</button>
+          <button class="btn btn-primary" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">Donate</button>
         </div>
+
+        <p class="microcopy">“Add your email to receive community updates, event invites, and opportunities to shape policy. We respect your privacy and never sell your information.”</p>
       </div>
-      <div class="hero__card" aria-label="Quick stats">
-        <div class="stat"><div>🚀</div><div><strong>98%</strong><br><small>Performance score (Lighthouse)</small></div><div>Core Web Vitals</div></div>
-        <div class="stat"><div>🛡️</div><div><strong>Security‑first</strong><br><small>HTTPS & headers ready</small></div><div>Best Practices</div></div>
-        <div class="stat"><div>🧩</div><div><strong>Modular</strong><br><small>Sections you can remix</small></div><div>Extendable</div></div>
-      </div>
+
+      <aside class="signup-card" id="signup-email" aria-label="Email signup">
+        <strong>Join the Movement — Email Sign‑up</strong>
+        <form onsubmit="event.preventDefault(); alert('Thanks — you\'re on the list (demo).');" style="margin-top:.6rem">
+          <label for="email" class="muted" style="font-size:.9rem">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <button class="btn btn-primary" type="submit">Join the Movement</button>
+            <button class="btn btn-ghost" type="button" onclick="document.getElementById('volunteer').scrollIntoView({behavior:'smooth'})">Volunteer</button>
+            <button class="btn btn-ghost" type="button" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">RSVP to Events</button>
+            <a class="btn" href="#donate" style="background:transparent;border:1px solid rgba(2,6,23,.06)">Donate</a>
+          </div>
+        </form>
+        <p class="microcopy">We respect your privacy and never sell your information.</p>
+      </aside>
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features" class="section--alt">
+  <!-- WHY DIANE -->
+  <section id="why">
     <div class="container">
-      <h2 class="section__title">Everything you need to launch fast</h2>
-      <p class="section__lead">Responsive layout, accessible components, and zero‑config deployment options.</p>
-      <div class="features">
-        <article class="feature">
-          <h3>Responsive by default</h3>
-          <p>Grid‑based layout adapts smoothly from mobile to desktop without extra work.</p>
-        </article>
-        <article class="feature">
-          <h3>Clean, semantic HTML</h3>
-          <p>SEO‑friendly structure with ARIA labels and descriptive metadata out of the box.</p>
-        </article>
-        <article class="feature">
-          <h3>Easy theming</h3>
-          <p>Edit color variables in <code>:root</code> to instantly match your brand.</p>
-        </article>
+      <h2 class="section-title">Why Diane</h2>
+      <p class="lead">Dr. Diane Adoma brings proven local leadership, national recognition, and decades of private‑sector experience to serve Stonecrest.</p>
+      <div class="two-col">
+        <div class="card">
+          <ul class="list">
+            <li>• Former Stonecrest Councilwoman & Mayor Pro Tem</li>
+            <li>• Lifetime Presidential Award (2024) for service</li>
+            <li>• 20+ years in corporate leadership (Adoma & Associates, AT&T, CNN)</li>
+            <li>• 22+ years as an entrepreneur</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul class="list">
+            <li>• Led communications on GDOT’s largest DeKalb County project ($700M) headquartered off Panola Rd in Stonecrest</li>
+            <li>• Founder, Diane Daniels Foundation, Inc. — literacy & youth success</li>
+            <li>• Deep community ties and experience delivering results</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Showcase -->
-  <section id="showcase">
+  <!-- DAY-ONE PRIORITIES -->
+  <section id="priorities" class="section--alt">
     <div class="container">
-      <h2 class="section__title">Showcase your product or service</h2>
-      <p class="section__lead">Drop in screenshots, before/after images, or short videos.</p>
-      <div class="showcase">
-        <div class="shot">Screenshot / Hero</div>
-        <div class="shot">Feature Block</div>
-        <div class="shot">Testimonial</div>
-      </div>
-      <div class="cta-strip" style="margin-top:1.25rem">
-        <strong>Need a CMS?</strong>
-        <div class="row">
-          <a class="cta" href="#contact">Ask about blog pages</a>
-          <a class="cta cta--ghost" href="#">Docs</a>
+      <h2 class="section-title">Day‑One Priorities</h2>
+      <p class="lead">Actionable priorities ready on day one to keep Stonecrest safe, growing, and transparent.</p>
+      <div class="priorities">
+        <div class="priority">
+          <h4>Public Safety</h4>
+          <p>Establish a Sub‑Police Station in Stonecrest and expand community policing partnerships.</p>
+        </div>
+        <div class="priority">
+          <h4>Economic Growth</h4>
+          <p>Activate Community Improvement Districts (CIDs) and a Stonecrest industrial corridor for quality jobs.</p>
+        </div>
+        <div class="priority">
+          <h4>Open Government</h4>
+          <p>Launch a Transparency Center with real‑time dashboards, Budget 101, and easy public‑records access.</p>
+        </div>
+        <div class="priority">
+          <h4>Partnerships</h4>
+          <p>Deepen collaboration with Arabia Mountain, Flat Rock, DeKalb County, local chambers, and sister cities.</p>
+        </div>
+        <div class="priority">
+          <h4>Seniors First</h4>
+          <p>More resources, training, and transportation options for our elders.</p>
+        </div>
+        <div class="priority">
+          <h4>Youth & Schools</h4>
+          <p>After‑school alliances with libraries and STEM programs to prepare students for tomorrow’s jobs.</p>
+        </div>
+        <div class="priority">
+          <h4>Across the Aisle</h4>
+          <p>Practical solutions over partisanship—results that unite Stonecrest.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="section--alt">
+  <!-- SIGNATURE COMMUNITY INITIATIVES -->
+  <section id="initiatives">
     <div class="container">
-      <h2 class="section__title">Simple, transparent pricing</h2>
-      <p class="section__lead">Choose a plan and launch today. Cancel anytime.</p>
-      <div class="pricing">
-        <div class="plan">
-          <h3>Starter</h3>
-          <p class="price">$0</p>
-          <p class="muted">Open‑source template</p>
-          <p><span class="check">✔</span>Single page</p>
-          <p><span class="check">✔</span>Responsive layout</p>
-          <p><span class="check">✔</span>Basic SEO</p>
-          <button class="cta" onclick="alert('You chose Starter!')">Use Starter</button>
+      <h2 class="section-title">Signature Community Initiatives</h2>
+      <div class="two-col">
+        <div class="initiative">
+          <h3>Wisdom & Wi‑Fi™</h3>
+          <p>Free BBQ + digital literacy pop‑ups for seniors and caregivers. Bring your phone or tablet; leave confident.</p>
         </div>
-        <div class="plan plan--pop">
-          <h3>Pro</h3>
-          <p class="price">$49</p>
-          <p class="muted">Everything in Starter, plus</p>
-          <p><span class="check">✔</span>Contact form</p>
-          <p><span class="check">✔</span>Blog pages</p>
-          <p><span class="check">✔</span>Analytics setup</p>
-          <button class="cta" onclick="alert('You chose Pro!')">Get Pro</button>
-        </div>
-        <div class="plan">
-          <h3>Agency</h3>
-          <p class="price">$199</p>
-          <p class="muted">For teams & resellers</p>
-          <p><span class="check">✔</span>Multi‑page site</p>
-          <p><span class="check">✔</span>Priority support</p>
-          <p><span class="check">✔</span>Custom sections</p>
-          <button class="cta" onclick="alert('You chose Agency!')">Contact Sales</button>
+        <div class="initiative">
+          <h3>The Men of Stonecrest™</h3>
+          <p>A community‑based leadership and business empowerment platform—mentoring young men, backing small businesses, and building neighborhood pride.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
+  <!-- TRANSPARENCY CENTER -->
+  <section id="transparency" class="section--alt">
     <div class="container">
-      <h2 class="section__title">Contact us</h2>
-      <p class="section__lead">Have questions or want a custom build? Send a message.</p>
-      <form class="plan" onsubmit="event.preventDefault(); alert('Form submitted (demo). Connect to your form handler.');">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required style="width:100%;padding:.7rem;border-radius:12px;border:1px solid #e5e7eb;margin:.35rem 0 1rem" />
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required style="width:100%;padding:.7rem;border-radius:12px;border:1px solid #e5e7eb;margin:.35rem 0 1rem" />
-        <label for="msg">Message</label>
-        <textarea id="msg" name="message" rows="4" required style="width:100%;padding:.7rem;border-radius:12px;border:1px solid #e5e7eb;margin:.35rem 0 1rem"></textarea>
-        <button class="cta" type="submit">Send Message</button>
-        <p class="muted" style="margin-top:.5rem">Tip: Replace the form handler with Netlify Forms or your backend.</p>
-      </form>
+      <h2 class="section-title">The Transparency Center (Coming Soon)</h2>
+      <p class="lead">Tools and data to hold government accountable and make civic information useful to everyone.</p>
+      <div class="two-col" style="margin-top:1rem">
+        <div class="card">
+          <ul class="list">
+            <li>• Service Scorecard: permits, code enforcement, 311 response times, road repairs.</li>
+            <li>• Budget & Spending: clear charts of where every dollar goes.</li>
+            <li>• Open Records Made Easy: forms, guides, and timelines.</li>
+            <li>• Data for All: downloadable, privacy‑safe city data.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Get early access updates</strong>
+          <form onsubmit="event.preventDefault(); alert('You\'ll get early access updates (demo).');" style="margin-top:.6rem">
+            <label for="early-email" class="muted">Email</label>
+            <input id="early-email" type="email" placeholder="you@example.com" required />
+            <div style="margin-top:.6rem">
+              <button class="btn btn-primary" type="submit">Join the list</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="container">
+      <h2 class="section-title">Events</h2>
+      <p class="lead">Whole Hog, Whole Vision – Campaign Kickoff</p>
+      <div class="event" style="margin-top:1rem">
+        <div class="date">Date TBD</div>
+        <div>
+          <strong>Whole Hog, Whole Vision – Campaign Kickoff</strong>
+          <p class="muted">A community BBQ celebrating Stonecrest’s future. Meet Diane, share your ideas, and help us build a winning coalition.</p>
+          <div style="margin-top:.6rem">
+            <button class="btn btn-primary" onclick="alert('RSVP recorded (demo).')">RSVP now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section id="get-involved" class="section--alt">
+    <div class="container">
+      <h2 class="section-title">Get Involved</h2>
+      <p class="lead">Lend your time, resources, or voice to this movement.</p>
+      <div class="two-col" style="margin-top:1rem">
+        <div class="card">
+          <h4>Volunteer Roles</h4>
+          <ul class="list">
+            <li>• Canvass</li>
+            <li>• Phone bank</li>
+            <li>• Host a meet‑and‑greet</li>
+            <li>• Become a Digital Ambassador</li>
+          </ul>
+          <div style="margin-top:.6rem">
+            <button class="btn" onclick="document.getElementById('volunteer').scrollIntoView({behavior:'smooth'})">Volunteer</button>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Small‑Biz Partners & Community Voices</h4>
+          <ul class="list">
+            <li>• Join our Vendor & Sponsor circle</li>
+            <li>• Showcase Stonecrest entrepreneurship</li>
+            <li>• Take the 60‑second survey to rank your top priorities</li>
+          </ul>
+          <div style="margin-top:.6rem" class="row">
+            <button class="btn btn-ghost" onclick="alert('Sponsor interest noted (demo).')">Become a Sponsor</button>
+            <button class="btn btn-primary" onclick="alert('Survey launched (demo).')">Take the Survey</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIDDEN / CONTACT ANCHORS -->
+  <section id="volunteer" style="display:none"></section>
+  <section id="donate" style="display:none"></section>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="container footer-grid">
-      <div>
-        <div class="brand" style="padding:0">
-          <div class="brand__logo" aria-hidden="true">TA</div>
-          <div class="brand__title">TrustAdoma.com</div>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+        <div>
+          <div style="display:flex;align-items:center;gap:.6rem">
+            <div class="logo">DA</div>
+            <div>
+              <div style="font-weight:800">Dr. Diane Adoma</div>
+              <div class="muted">Stonecrest District 5</div>
+            </div>
+          </div>
+          <div class="muted" style="margin-top:.6rem">© <span id="year"></span> TrustAdoma. All rights reserved.</div>
         </div>
-        <p class="copyright">© <span id="year"></span> TrustAdoma. All rights reserved.</p>
-      </div>
-      <div>
-        <div class="footer-title">Company</div>
-        <a class="nav__link" href="#features" style="color:#334155">About</a><br>
-        <a class="nav__link" href="#pricing" style="color:#334155">Pricing</a><br>
-        <a class="nav__link" href="#contact" style="color:#334155">Contact</a>
-      </div>
-      <div>
-        <div class="footer-title">Legal</div>
-        <a class="nav__link" href="#" style="color:#334155">Terms</a><br>
-        <a class="nav__link" href="#" style="color:#334155">Privacy</a>
+        <div class="row muted">
+          <a href="#why">Why Diane</a>
+          <a href="#priorities">Priorities</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <script>
-    // Mobile nav toggle
-    const toggle = document.querySelector('.menu-toggle');
-    const panel = document.getElementById('mobile-panel');
-    toggle?.addEventListener('click', ()=>{
-      const open = panel.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Smooth anchor scroll for in-page links
+    // Smooth scroll for internal anchors
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const id = a.getAttribute('href');
-        if(id && id.length > 1){
+        if(id && id.length>1){
           const el = document.querySelector(id);
           if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
         }
       });
     });
-
-    // Dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
